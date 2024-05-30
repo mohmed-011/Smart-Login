@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bookmark</title>
+
+    <!-- Pacifico font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Righteous font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- PT Sans Caption font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="py-5">
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center"
+      >
+        <h1>Bookmarker</h1>
+        <div
+          class="bookmark-body w-100 p-3 py-5 mt-5 d-flex flex-column justify-content-center align-items-center gap-4"
+        >
+          <h2>
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h2>
+          <div class="site-name w-100">
+            <label for="bookmarkName" class="pb-2 fw-semibold">
+              <i class="fa-solid fa-book-bookmark px-2"></i>
+              Site Name</label
+            >
+            <input
+              type="text"
+              placeholder="Bookmark Name"
+              class="form-control"
+              id="bookmarkName"
+            />
+          </div>
+          <!-- <div class="alert alert-danger w-100 py-2" role="alert">
+            must contains from 3 to 10 char !!
+          </div> -->
+          <div class="site-url w-100">
+            <label for="bookmarkUrl" class="pb-2 fw-semibold">
+              <i class="fa-solid fa-link px-2"></i>Site URL</label
+            >
+            <input
+              type="url"
+              placeholder="Website URL"
+              class="form-control"
+              id="bookmarkUrl"
+            />
+          </div>
+          <!-- <div class="alert alert-danger w-100 py-2" role="alert">
+            Not vaild url !!
+          </div> -->
+          <button class="button mt-4" id="submitBtn">Add Bookmark</button>
+          <button class="button mt-4 d-none" id="updateBtn">Save</button>
+
+          <div class="site-Search w-100">
+            <label for="bookmarkSearch" class="pb-2 fw-semibold">
+              <i class="fa-solid fa-magnifying-glass px-2"></i> Search</label
+            >
+            <input
+              type="search"
+              placeholder=" Search"
+              class="form-control"
+              id="bookmarkSearch"
+            />
+          </div>
+        </div>
+
+        <table class="w-100 bg-black rounded-2 text-white bg-opacity-50">
+          <thead class="">
+            <th class="text-center py-3">Index</th>
+            <th class="text-center py-3">Website Name</th>
+            <th class="text-center py-3">Visit</th>
+            <th class="text-center py-3">Update</th>
+            <th class="text-center py-3">Delete</th>
+          </thead>
+          <hr />
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+    <div class="layer d-none">
+      <div class="card">
+        <div class="card__content">
+          <div class="top d-flex justify-content-between pt-4">
+            <div class="color d-flex ps-3">
+              <div class="red bg-danger ms-3"></div>
+              <div class="yellow bg-warning mx-2"></div>
+              <div class="green bg-success"></div>
+            </div>
+            <a href="#" class="me-4 text-decoration-none text-white closeBtn"
+              ><i class="fa-solid fa-xmark close fs-2"></i
+            ></a>
+          </div>
+          <div class="mid px-4 pt-4 pb-2 text-white">
+            <p>
+              Site Name or Url is not valid, Please follow the rules below :
+            </p>
+          </div>
+          <div class="bott px-4 text-danger">
+            <p>
+              <span><i class="fa-regular fa-circle-right p-2"></i></span> Site
+              name must contain at least 3 characters
+            </p>
+            <p>
+              <span><i class="fa-regular fa-circle-right p-2"></i></span>Site
+              URL must be a valid one
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="JS/main.js"></script>
+  </body>
+</html>
