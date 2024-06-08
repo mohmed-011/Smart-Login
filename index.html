@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Bookmark</title>
+    <title>Login</title>
 
     <!-- Pacifico font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,108 +33,116 @@
     />
   </head>
   <body>
-    <main class="py-5">
-      <div
-        class="container d-flex flex-column justify-content-center align-items-center"
-      >
-        <h1>Bookmarker</h1>
-        <div
-          class="bookmark-body w-100 p-3 py-5 mt-5 d-flex flex-column justify-content-center align-items-center gap-4"
+    <div id="homePage" class="d-none">
+      <nav class="navbar navbar-expand-lg bg-transparent Form-nav mb-5">
+        <div class="container">
+          <a class="navbar-brand text-white" href="#">SMART LOGIN</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <button id="logoutBtn" class="nav-link btn btn-outline-warning text-white border border-warning" href="#">Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <p class="text-success text-center Form m-auto w-75 p-5 m-5">Welcome <span id="uName"></span></p>
+    </div>
+
+    <div class="container my-5 text-center">
+      <div class="Form m-auto p-5 log">
+        <h1 class="mb-4">Smart Login System</h1>
+
+        <input
+          id="signinEmail"
+          class="form-control my-4"
+          placeholder="Enter your email"
+          type="email"
+        />
+        <input
+          id="signinPassword"
+          class="form-control my-4 "
+          placeholder="Enter your password"
+          type="password"
+        />
+        <p id="incorrect" class="text-danger d-block m-0"></p>
+
+        <button
+          onclick="login()"
+          id="loginBtn"
+          class="btn btn-outline-success w-100 my-4 button"
         >
-          <h2>
-            <i class="fa-solid fa-bookmark"></i>
-            Bookmark your favorite sites
-            <i class="fa-solid fa-bookmark"></i>
-          </h2>
-          <div class="site-name w-100">
-            <label for="bookmarkName" class="pb-2 fw-semibold">
-              <i class="fa-solid fa-book-bookmark px-2"></i>
-              Site Name</label
-            >
-            <input
-              type="text"
-              placeholder="Bookmark Name"
-              class="form-control"
-              id="bookmarkName"
-            />
-          </div>
-          <!-- <div class="alert alert-danger w-100 py-2" role="alert">
-            must contains from 3 to 10 char !!
-          </div> -->
-          <div class="site-url w-100">
-            <label for="bookmarkUrl" class="pb-2 fw-semibold">
-              <i class="fa-solid fa-link px-2"></i>Site URL</label
-            >
-            <input
-              type="url"
-              placeholder="Website URL"
-              class="form-control"
-              id="bookmarkUrl"
-            />
-          </div>
-          <!-- <div class="alert alert-danger w-100 py-2" role="alert">
-            Not vaild url !!
-          </div> -->
-          <button class="button mt-4" id="submitBtn">Add Bookmark</button>
-          <button class="button mt-4 d-none" id="updateBtn">Save</button>
-
-          <div class="site-Search w-100">
-            <label for="bookmarkSearch" class="pb-2 fw-semibold">
-              <i class="fa-solid fa-magnifying-glass px-2"></i> Search</label
-            >
-            <input
-              type="search"
-              placeholder=" Search"
-              class="form-control"
-              id="bookmarkSearch"
-            />
-          </div>
-        </div>
-
-        <table class="w-100 bg-black rounded-2 text-white bg-opacity-50">
-          <thead class="">
-            <th class="text-center py-3">Index</th>
-            <th class="text-center py-3">Website Name</th>
-            <th class="text-center py-3">Visit</th>
-            <th class="text-center py-3">Update</th>
-            <th class="text-center py-3">Delete</th>
-          </thead>
-          <hr />
-          <tbody></tbody>
-        </table>
+          Login
+        </button>
+        <p class="text-white">
+          Don’t have an account?
+          <button id="toSignup" class="btn btn-outline-success ms-2 button" href="">
+            Sign Up
+          </button>
+        </p>
       </div>
-    </main>
-    <div class="layer d-none">
-      <div class="card">
-        <div class="card__content">
-          <div class="top d-flex justify-content-between pt-4">
-            <div class="color d-flex ps-3">
-              <div class="red bg-danger ms-3"></div>
-              <div class="yellow bg-warning mx-2"></div>
-              <div class="green bg-success"></div>
-            </div>
-            <a href="#" class="me-4 text-decoration-none text-white closeBtn"
-              ><i class="fa-solid fa-xmark close fs-2"></i
-            ></a>
-          </div>
-          <div class="mid px-4 pt-4 pb-2 text-white">
-            <p>
-              Site Name or Url is not valid, Please follow the rules below :
-            </p>
-          </div>
-          <div class="bott px-4 text-danger">
-            <p>
-              <span><i class="fa-regular fa-circle-right p-2"></i></span> Site
-              name must contain at least 3 characters
-            </p>
-            <p>
-              <span><i class="fa-regular fa-circle-right p-2"></i></span>Site
-              URL must be a valid one
-            </p>
-          </div>
-        </div>
+      <!-- =============================== -->
+
+      <div class="Form m-auto  p-5 d-none sign">
+        <h1 class="mb-4">Smart Login System</h1>
+        <input
+          id="signupName"
+          class="form-control my-4"
+          placeholder="Enter your Name"
+          type="text"
+        />
+        <input
+          id="signupEmail"
+          class="form-control my-4"
+          placeholder="Enter your email"
+          type="text"
+        />
+        <input
+          id="signupPassword"
+          class="form-control my-4"
+          placeholder="Enter your password"
+          type="password"
+        />
+        <p id="Sucssec" class="text-danger d-block m-0"></p>
+
+        <button id="signinBtn" class="btn btn-outline-success w-100 my-3 button">
+          Signup
+        </button>
+        <p class="text-white">
+          Don’t have an account?
+          <button id="toLogin" class="btn btn-outline-success ms-2 button" href="">
+            Login
+          </button>
+        </p>
       </div>
     </div>
+<svg class="sv1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#198754" d="M37.9,-56C48.4,-52.3,55.5,-40.5,55,-28.8C54.5,-17.2,46.4,-5.9,46.8,8.4C47.3,22.6,56.4,39.7,53,48.9C49.6,58.1,33.8,59.5,19.6,61.2C5.4,62.9,-7.1,64.8,-18.3,61.8C-29.4,58.7,-39.3,50.6,-45,40.8C-50.8,31,-52.5,19.4,-50,9.7C-47.6,0,-40.9,-7.8,-37.9,-18.6C-35,-29.4,-35.8,-43.1,-30,-48.9C-24.3,-54.8,-12.2,-52.7,0.8,-53.9C13.8,-55.2,27.5,-59.7,37.9,-56Z" transform="translate(100 100)" />
+</svg>
+
+<svg class="sv2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#198754" d="M37.9,-56C48.4,-52.3,55.5,-40.5,55,-28.8C54.5,-17.2,46.4,-5.9,46.8,8.4C47.3,22.6,56.4,39.7,53,48.9C49.6,58.1,33.8,59.5,19.6,61.2C5.4,62.9,-7.1,64.8,-18.3,61.8C-29.4,58.7,-39.3,50.6,-45,40.8C-50.8,31,-52.5,19.4,-50,9.7C-47.6,0,-40.9,-7.8,-37.9,-18.6C-35,-29.4,-35.8,-43.1,-30,-48.9C-24.3,-54.8,-12.2,-52.7,0.8,-53.9C13.8,-55.2,27.5,-59.7,37.9,-56Z" transform="translate(100 100)" />
+</svg>
+
+<svg class="sv3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#198754" d="M37.9,-56C48.4,-52.3,55.5,-40.5,55,-28.8C54.5,-17.2,46.4,-5.9,46.8,8.4C47.3,22.6,56.4,39.7,53,48.9C49.6,58.1,33.8,59.5,19.6,61.2C5.4,62.9,-7.1,64.8,-18.3,61.8C-29.4,58.7,-39.3,50.6,-45,40.8C-50.8,31,-52.5,19.4,-50,9.7C-47.6,0,-40.9,-7.8,-37.9,-18.6C-35,-29.4,-35.8,-43.1,-30,-48.9C-24.3,-54.8,-12.2,-52.7,0.8,-53.9C13.8,-55.2,27.5,-59.7,37.9,-56Z" transform="translate(100 100)" />
+</svg>
+
+<svg class="sv4" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#198754" d="M37.9,-56C48.4,-52.3,55.5,-40.5,55,-28.8C54.5,-17.2,46.4,-5.9,46.8,8.4C47.3,22.6,56.4,39.7,53,48.9C49.6,58.1,33.8,59.5,19.6,61.2C5.4,62.9,-7.1,64.8,-18.3,61.8C-29.4,58.7,-39.3,50.6,-45,40.8C-50.8,31,-52.5,19.4,-50,9.7C-47.6,0,-40.9,-7.8,-37.9,-18.6C-35,-29.4,-35.8,-43.1,-30,-48.9C-24.3,-54.8,-12.2,-52.7,0.8,-53.9C13.8,-55.2,27.5,-59.7,37.9,-56Z" transform="translate(100 100)" />
+</svg>
     <script src="JS/main.js"></script>
   </body>
 </html>
