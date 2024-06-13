@@ -53,17 +53,20 @@ loginBtn.addEventListener("click", function () {
 toSignup.addEventListener("click", function () {
   sign.classList.replace("d-none", "d-block");
   log.classList.add("d-none");
+  clear();
 });
 
 toLogin.addEventListener("click", function () {
   log.classList.replace("d-none", "d-block");
   sign.classList.replace("d-block", "d-none");
+  clear();
 });
 
-logoutBtn.addEventListener("click",function(){
+logoutBtn.addEventListener("click", function () {
   homePage.classList.replace("d-block", "d-none");
   log.classList.replace("d-none", "d-block");
-})
+  clear();
+});
 
 function addUser() {
   var found = false;
@@ -95,6 +98,7 @@ function addUser() {
         localStorage.setItem("USERS", JSON.stringify(UserList));
         log.classList.replace("d-none", "d-block");
         sign.classList.replace("d-block", "d-none");
+        clear();
       }
     } else {
       Sucssec.innerHTML = "Not valid data";
@@ -119,6 +123,7 @@ function login() {
         homePage.classList.replace("d-none", "d-block");
         log.classList.add("d-none");
         found = true;
+        clear();
       }
     }
 
@@ -136,4 +141,15 @@ function vaildation(element) {
     element.classList.remove("is-valid");
     element.classList.add("is-invalid");
   }
+}
+
+function clear() {
+  signupName.value = null;
+  signupEmail.value = null;
+  signupPassword.value = null;
+  signinEmail.value = null;
+  signinPassword.value = null;
+
+  incorrect.innerHTML = null;
+  Sucssec.innerHTML = null;
 }
